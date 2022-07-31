@@ -1,0 +1,11 @@
+
+##Javascript get all hyperlinks containing github.ws
+var arr = [];
+$("a[href*='github.ws']").each(function(){
+    arr.push($(this).attr('href'));
+})
+console.log(arr);
+
+--> Right click store as global variable, then copy(#globvar) should prompt String was copied to clipboard.
+https://paladini.dev/posts/how-to-copy-a-big-object-or-array-from-console-to-clipboard/
+

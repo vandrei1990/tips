@@ -1,0 +1,46 @@
+###commdands pv/lv
+fdisk -l
+parted -l
+lsblk
+pvdisplay
+vgs
+pvcreate
+lvcreate
+mount /dev/sdd1 /media/usb
+cat /etc/fstab
+
+
+###LVM about
+https://www.thegeekstuff.com/2010/08/how-to-create-lvm/
+
+###RedHat RPM force install
+rpm -ivh --force *rpm # -- to install rpms
+rpm -qpl *rpm # ----to check file structure
+
+
+###Docker Emby
+docker run -d --name embyserver --volume /opt/emby/config:/config --volume /mnt:/mnt --publish 3096:8096 --publish 3920:8920 emby/embyserver:latest
+
+####Docker jellyfin
+docker run -d -v /opt/jellyfin/config:/config -v /opt/jellyfin/cache:/cache -v /mnt:/media -v /opt/nextcloud/app/data/admin/files/folder:/folder --net=host jellyfin/jellyfin:latest
+
+####Java console
+https://stackoverflow.com/questions/15093376/jconsole-over-ssh-local-port-forwarding
+
+###Check network connections for a pid
+strace -p $PID -f -e trace=network -s 10000
+    -f is for "follow new processes"
+    -e defines a filter
+    -s sets the limit of strings to more then 32
+    -p takes the process id to attach to
+
+###Redhat upgrade major releases(7->8, kernerl 3->4)
+leapp upgrade --no-rhsm --enablerepo $repoID_1 --enablerepo $repoID_2
+
+### Check if port is open to another host based on IP/port in linux
+cat < /dev/tcp/$IP_host/53
+cat < /dev/tcp/10.0.0.1/443
+
+
+###Extend partition if storage available in vgs
+lvextend -L -r  +2G $filesistem  #used -r utility to skip resize2fs after

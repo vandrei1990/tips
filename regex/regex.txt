@@ -1,0 +1,24 @@
+# Regex take all groups between paranthesis
+\((.*?)\) 
+
+
+#Python /match-text-between-two-strings-with-regular-expression 	
+
+>>> import re
+>>> s = 'Part 1. Part 2. Part 3 then more text'
+>>> re.search(r'Part 1\.(.*?)Part 3', s).group(1)
+' Part 2. '
+>>> re.search(r'Part 1(.*?)Part 3', s).group(1)
+'. Part 2. '	
+
+#https://regexland.com/all-between-specified-characters/
+#A regular expression that matches all characters between two specified characters makes use of look-ahead (?=…) and look-behind (?<=…) statements to isolate the string, and then uses the dot character . to #select all contents between the delimiters.
+#An expression that does matches everything between a and b is:
+
+/(?<=a).*(?=b)/g
+
+TY
+
+
+####Match all occurences for word starting with "ws-" until a whitespace --> replace with $0
+(?:ws-)[^\s]+
