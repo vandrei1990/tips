@@ -22,3 +22,6 @@ TY
 
 ####Match all occurences for word starting with "ws-" until a whitespace --> replace with $0
 (?:ws-)[^\s]+
+
+### Vscode --> take everything between {{ }}
+\{\{(.*?)\}\}
