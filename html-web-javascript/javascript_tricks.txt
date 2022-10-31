@@ -1,7 +1,7 @@
 
-##Javascript get all hyperlinks containing github.ws
+##Javascript get all hyperlinks containing example.com
 var arr = [];
-$("a[href*='github.ws']").each(function(){
+$("a[href*='example.com']").each(function(){
     arr.push($(this).attr('href'));
 })
 console.log(arr);
