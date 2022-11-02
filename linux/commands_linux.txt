@@ -1,14 +1,18 @@
 ###commdands pv/lv
 fdisk -l
 parted -l
-lsblk
-pvdisplay
-vgs
-pvcreate
-lvcreate
+lsblk /vgs / pvs / lvdisplay/pvdisplay  && cat /etc/fstab
+lvcreate --> https://www.tecmint.com/manage-and-create-lvm-parition-using-vgcreate-lvcreate-and-lvextend/
 mount /dev/sdd1 /media/usb
-cat /etc/fstab
+pvcreate /dev/sdb2
+vgextend rhel /dev/sdb2
+lvextend -r -l +100%free /dev/rhel/data
 
+###to check ??????
+for x in $(ls -d /sys/class/scsi_host/*/scan);do  echo “- - -” > $x;done
+cat /sys/class/scsi_host/host2/scan
+cat /sys/class/scsi_host/host2/scan
+partprobe -s
 
 ###LVM about
 https://www.thegeekstuff.com/2010/08/how-to-create-lvm/
